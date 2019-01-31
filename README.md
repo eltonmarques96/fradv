@@ -48,6 +48,7 @@ You can improve your score with:
 | **Total** | 0-10 |
 
 Your score can be improved by:
+
 | Improvement Task | Factor |
 | ------ | ------ |
 | PHP Framework | 0-10% |
