@@ -5,7 +5,9 @@ Hello.
 If you reach this part of the selection pool, cheers.
 This selection's phase will allow us to evaluate your development and PHP skills.
 It's a very simple task if you had the expected knowledge on the language. Forget about complex graphs or heavy optimization tasks, at that time. We can find a lot of information about these topics on Google and, if you need that on the job, you can research it.
+
 But don't think "If the test is easy, the job is easy too". **Wrong!**
+
 The job has a very challenging bunch of task. You're not prepared, that will be consume your soul.
 
 So, let's talk about the Challenge.
