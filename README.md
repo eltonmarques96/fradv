@@ -57,6 +57,7 @@ Your score can be improved by:
 | Software Engineering | 0-10% |
 
 To be approved on this challenge, you need to achieve a score greater than 7.0.
+
 **The deadline for submissions are closed at 23:59:59 on Feb, 05.**
 
 Good Luck for you.
