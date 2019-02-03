@@ -20,6 +20,10 @@ class Dashboard extends CI_Controller {
 	 */
 	public function index()
 	{
+		//Carregando as views da página inicial
+		$this->load->view('includes/html-header');
+		$this->load->view('includes/menu');
 		$this->load->view('dashboard');
+		$this->load->view('includes/html-footer');
 	}
 }
