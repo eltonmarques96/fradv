@@ -6,9 +6,6 @@
         <div class="col-md-10">  
           <h1 class="h2">New Form</h1>
         </div>
-        <div class="col-md-2">  
-          
-        </div>
       </div>
       <div class="col-md-12">
           <form action="<?php base_url() ?>forms/newRegister" method="post">
@@ -26,20 +23,26 @@
               </div>
               <div class="form-group">
                 <div class="col-md-8">
-                  <label for="Process Date">Process Date</label>
-                  <input type="date" class="form-control" name="processDate" required>
+                  <label for="RequestDate">Request Date</label>
+                  <input type="date" class="form-control" id="requestDate" name="requestDate" required>
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-md-8">
-                  <label for="processSubject">Subject</label>
-                  <input type="text" class="form-control" id="processSubject" name="processSubject" placeholder="Insert the process name" required> 
+                  <label for="RequestProcess">Request Process</label>
+                  <input type="text" class="form-control" id="requestProcess" name="requestProcess" required>
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-md-8">
-                  <label for="Process Request">Request Content</label>
-                  <textarea class="form-control" id="Process Request" name="requestContent" rows="3"></textarea required>
+                  <label for="requestSubject">Subject</label>
+                  <input type="text" class="form-control" id="requestSubject" name="requestSubject" placeholder="Insert the process name" required> 
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-8">
+                  <label for="requestContent">Request Content</label>
+                  <textarea class="form-control" id="requestContent" name="requestContent" rows="3"></textarea required>
                 </div>
               </div>
               <br>

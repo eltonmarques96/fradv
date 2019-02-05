@@ -1,6 +1,6 @@
 {
     "git.ignoreLimitWarning": true,
-    "editor.fontSize": 15,
+    "editor.fontSize": 11,
     "files.autoSave": "onFocusChange",
     "php.executablePath": "E:\\xampp\\php\\php.exe",
     "php.validate.executablePath": "E:\\xampp\\php\\php.exe", 

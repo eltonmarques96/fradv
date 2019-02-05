@@ -9,7 +9,9 @@
     <title>Falcão Rios Advocacia</title>
 
     <!-- Bootstrap core CSS -->
-<link href="<?php base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    
+<link href="<?= '/ProjetoFalcaoRios/assets/css/bootstrap.min.css'?>" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 <style>
       .bd-placeholder-img {
@@ -24,7 +26,7 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="<?php base_url(); ?>assets/css/dashboard.css" rel="stylesheet">
+    <link href='/ProjetoFalcaoRios/assets/css/dashboard.css' rel="stylesheet">
   </head>
   <body>
     
