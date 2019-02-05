@@ -48,8 +48,9 @@
               <br>
               <div class="form-group">
                 <div class="col-md-8">
-                    <label for="processAttachment">Attchaments</label>
-                    <input type="file" class="form-control-file" name="attchmentsDirectory" id="processAttachment">
+                    <label for="processAttachment">Attchments</label>
+                    <input type="file" class="input-file" name="attachmentsDirectory" id="processAttachment">
+                    <span class="help-block">2MB per file</span>
                   </div>
               </div>
               <br>

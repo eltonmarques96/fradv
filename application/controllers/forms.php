@@ -21,34 +21,58 @@ class Forms extends CI_Controller {
 
 	public function index($route=null)
 	{
+		//Selecting all forms registered
 		$this->db->select('*');
 		$forms_data['forms'] = $this->db->get('formularios')->result();
 
-		//Carregando as views da página inicial
+		//Loading the views
 		$this->load->view('includes/html-header');
 		$this->load->view('includes/menu');
+		/*
+		ROUTE 1
+		INSERT SUCCESSFUL
+		ROUTE 2 
+		INSERT ERROR
+		ROUTE 3 
+		DELETE SUCESSFUL 
+		ROUTE 4 
+		DELETE ERROR
+		*/
 		if($route==1)
 		{
 			$data['msg'] = "The form has been sent.";
 			$this->load->view('/includes/successfulMessage',$data);
 		}else if($route==2)
 		{
-			$data['msg'] = "It was not possible to send your form, please try again";
+			$data['msg'] = "It was not possible to send the form, please try again";
 			$this->load->view('/includes/errorMessage',$data);
 		}
+		if($route==3)
+		{
+			$data['msg'] = "The form has been deleted.";
+			$this->load->view('/includes/successfulMessage',$data);
+		}else if($route==4)
+		{
+			$data['msg'] = "It was not possible to delete the form, please try again";
+			$this->load->view('/includes/errorMessage',$data);
+		}
+		//Loading the reaming forms
 		$this->load->view('forms',$forms_data);
 		$this->load->view('includes/html-footer');
 	}
 	
-	public function register()
+	//Function to delete a especific form
+	public function delete($id=null)
 	{
-		//Carregando as views da página inicial
-		$this->load->view('includes/html-header');
-		$this->load->view('includes/menu');
-		$this->load->view('register');
-		$this->load->view('includes/html-footer');
+		$this->db->where('processID',$id);
+		if($this->db->delete('formularios')){
+			redirect('forms/3');
+		}else{
+			redirect('forms/4');
+		}
 	}
 	
+	//Function to insert a new form
 	public function newRegister()
 	{
 		$data['processID'] = $this->input->post('processID');
@@ -73,6 +97,7 @@ class Forms extends CI_Controller {
 		   }
 		   
 		}
+		//Parsing the information from the form to database
 		$data['id_hexaformulario'] = $hexa_number;
 		$data['costumerName'] = $this->input->post('costumerName');
 		$data['requestDate'] = $this->input->post('requestDate');
@@ -81,6 +106,7 @@ class Forms extends CI_Controller {
 		$data['requestContent'] = $this->input->post('requestContent');
 		$data['attachmentFile'] = $this->input->post('attachmentFile');
 
+		//Inserting the information into database
 		if($this->db->insert('formularios',$data)){
 			redirect('forms/1');
 		}else{

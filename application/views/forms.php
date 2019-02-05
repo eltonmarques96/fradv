@@ -6,19 +6,18 @@
         <div class="col-md-10">  
           <h1 class="h2">Watch forms</h1>
         </div>
-        <div class="col-md-2">
-          <a class="btn btn-primary btn-block" href="<?php base_url(); ?>forms/register">Send Form</a>
-        </div>
       </div>
       <div class="col-md-12">
-        <table>
+        <table class="table table striped">
           <tr>
             <th>Form ID</th>
             <th>Process ID</th>
             <th>Costumer's Name</th>
             <th>Request Date</th>
             <th>Request Process</th>
+            <th>Request Subject</th>
             <th>Request Content</th>
+            <th>Attachment</th>
           </tr>
           <?php foreach($forms as $formularios_) {?>
           <tr>
@@ -29,7 +28,14 @@
             <th><?= $formularios_-> requestProcess; ?></th>
             <th><?= $formularios_-> requestSubject; ?></th>
             <th><?= $formularios_-> requestContent; ?></th>
-            <td><a href="<?= base_url('form/excluir'.$formularios_-> processID) ?>" class="btn btn-danger"></a></td>
+            <?php
+              if (($formularios_-> attachmentFile) == NULL) { ?>
+                <th></th>
+            <?php } 
+              else { ?>
+                <th><a href=# ><img src='/ProjetoFalcaoRios/assets/img/clip.png' width="32" heigh="32"></a></th>
+            <?php } ?>
+            <td><a href="<?= base_url('forms/delete/'.$formularios_-> processID) ?>" class="btn btn-danger" onclick="return confirm('Do you really want to delete this form');">Delete</a></td>
           </tr>
           <?php }?>
         </table>
