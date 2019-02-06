@@ -24,19 +24,20 @@ class Forms extends CI_Controller {
 		//Selecting all forms registered
 		$this->db->select('*');
 		$forms_data['forms'] = $this->db->get('formularios')->result();
-
 		//Loading the views
 		$this->load->view('includes/html-header');
 		$this->load->view('includes/menu');
+		//Checking if the user send a attachment
+		
 		/*
-		ROUTE 1
-		INSERT SUCCESSFUL
-		ROUTE 2 
-		INSERT ERROR
-		ROUTE 3 
-		DELETE SUCESSFUL 
-		ROUTE 4 
-		DELETE ERROR
+			ROUTE 1
+			INSERT SUCCESSFUL
+			ROUTE 2 
+			INSERT ERROR
+			ROUTE 3 
+			DELETE SUCESSFUL 
+			ROUTE 4 
+			DELETE ERROR
 		*/
 		if($route==1)
 		{
@@ -104,13 +105,42 @@ class Forms extends CI_Controller {
 		$data['requestProcess'] = $this->input->post('requestProcess');
 		$data['requestSubject'] = $this->input->post('requestSubject');
 		$data['requestContent'] = $this->input->post('requestContent');
-		$data['attachmentFile'] = $this->input->post('attachmentFile');
-
+		$attch = false;
+		if(isset($_FILES['attachmentFile'])){
+			//Catching the extension of uploaded file
+			$extension = strtolower(substr($_FILES['attachmentFile']['name'], -4));
+			//Creating a new name for the attach
+			//The function md5 will encryptype the datetime of upload
+			//This makes impossible have two or more files with the same name
+			$new_name = md5(time()) . $extension;
+			//Directory where the file wil be saved
+			$directory = "uploads/";
+			/*
+				The information which will be on data base is about the directory of file,
+				not the file itself
+			*/
+			move_uploaded_file($_FILES['attachmentFile']['tmp_name'], $directory.$new_name);
+			$data['attachmentFile'] = $new_name;
+		}
 		//Inserting the information into database
 		if($this->db->insert('formularios',$data)){
 			redirect('forms/1');
 		}else{
 			redirect('forms/2');
 		}
+	}
+
+	public function downloadAttachment()
+	{
+		/*
+		if(isset($GET['processID'])){
+			$attachmentFile = $GET['processID'];
+			$stat->db->prepare("select * from formularios where processID =?");
+			$stat->bindParam(1, $processID);
+			$stat -> execute();
+			$data = $stat->fetch();
+
+			$file = 'uploads/'.$data['attachmentFile'];
+		} */
 	}
 }

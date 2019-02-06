@@ -33,9 +33,11 @@
                 <th></th>
             <?php } 
               else { ?>
-                <th><a href=# ><img src='/ProjetoFalcaoRios/assets/img/clip.png' width="32" heigh="32"></a></th>
+                <th>
+                  <a href="forms/downloadAttachment"> <img src='/ProjetoFalcaoRios/assets/img/clip.png' method="post" name = <?= $formularios_-> attachmentFile; ?> width="32" heigh="32"></a>
+                </th>
             <?php } ?>
-            <td><a href="<?= base_url('forms/delete/'.$formularios_-> processID) ?>" class="btn btn-danger" onclick="return confirm('Do you really want to delete this form');">Delete</a></td>
+            <td><a href="<?= base_url('forms/delete/'.$formularios_-> processID) ?>"  class="btn btn-danger" onclick="return confirm('Do you really want to delete this form');">Delete</a></td>
           </tr>
           <?php }?>
         </table>

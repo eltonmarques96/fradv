@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="col-md-12">
-          <form action="<?php base_url() ?>forms/newRegister" method="post">
+          <form action="<?php base_url() ?>forms/newRegister" method="post" enctype="multipart/form-data">
               <div class="form-group">
               <div class="col-md-4">
                   <label for="ProcessID">Process ID </label>
@@ -48,8 +48,7 @@
               <br>
               <div class="form-group">
                 <div class="col-md-8">
-                    <label for="processAttachment">Attchments</label>
-                    <input type="file" class="input-file" name="attachmentsDirectory" id="processAttachment">
+                    <input type="file" class="input-file" name="attachmentFile" id="processAttachment">
                     <span class="help-block">2MB per file</span>
                   </div>
               </div>
